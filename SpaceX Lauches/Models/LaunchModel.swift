@@ -8,18 +8,16 @@
 import Foundation
 
 struct Launch: Decodable {
-    let flightNumber: Int?
-    let name, details, dateUTC: String?
+    let flightNumber: Int
+    let dateUnix: Int?
+    let name, details: String?
     let success: Bool?
     let links: MediaLinks?
     
     enum CodingKeys: String, CodingKey {
         case name, success, details, links
         case flightNumber = "flight_number"
-        case dateUTC = "date_utc"
-        //        case dateUnix = "date_unix"
-        //        case dateLocal = "date_local"
-        //        case datePrecision = "date_precision"
+        case dateUnix = "date_unix"
     }
 }
 struct MediaLinks: Decodable {

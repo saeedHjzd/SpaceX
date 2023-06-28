@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
-        let navigationController = UINavigationController(rootViewController: HomeViewController())
+        let launchListVM = LaunchListVM(launchService: LaunchServices(networkingLayer: URLSessionNetworkingLayer()))
+        let launchListVC = LaunchListViewController(viewModel: launchListVM)
+        let navigationController = UINavigationController(rootViewController: launchListVC)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         

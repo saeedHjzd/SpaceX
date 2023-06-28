@@ -8,7 +8,7 @@
 import Foundation
 
 struct QueryBaseModel<T: Decodable>: Decodable{
-    let docs: [T?]
+    let docs: [T]?
     let totalDocs, limit, totalPages, page: Int
     let pagingCounter: Int
     let hasPrevPage, hasNextPage: Bool
